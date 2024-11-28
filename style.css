@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+}
+
+#container {
+  border: 5px solid black;
+  background-color: white;
+  box-shadow: 5px ;
+  margin: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 500px;
+  flex-grow: 1;
+}
+
+.grid-square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-square:hover {
+  background-color: aqua;
+}
+
+#grid-button {
+  margin-top: 5rem;
+  width: 10rem;
+  height: 5rem;
+  border-radius: 5px;
+  padding: 10px;;
+  display: inline-block;
+  border: 5px solid;
+}
