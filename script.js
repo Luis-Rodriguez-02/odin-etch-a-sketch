@@ -1,6 +1,7 @@
 let divContainer = document.querySelector("#container"); // parent div container
 const gridButton = document.querySelector("#grid-button");
 let numSquares;
+const deleteButton = document.querySelector("#delete-button")
 
 
 gridButton.addEventListener("click", () => {
@@ -15,6 +16,14 @@ gridButton.addEventListener("click", () => {
             div.classList.add('grid-square');  // add class to use for event listener
             div.style.width = `${100 / numSquares }%`; // divide by nums to make width within parent container - prevent overflow
             div.style.height = `${100 / numSquares }%`;
+
+            div.addEventListener('mouseenter', () => {
+              let red = Math.floor(Math.random() * 256)
+              let green = Math.floor(Math.random() * 256)
+              let blue = Math.floor(Math.random() * 256)
+              div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+          });
+
             divContainer.appendChild(div);
           }
         }
@@ -25,6 +34,10 @@ gridButton.addEventListener("click", () => {
   }
 );
 
+deleteButton.addEventListener("click", () => {
+  const squares = document.querySelectorAll(".grid-square");
+  squares.forEach(square => square.style.backgroundColor = "");
+});
 
 
 

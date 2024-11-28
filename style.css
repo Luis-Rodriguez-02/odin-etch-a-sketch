@@ -12,9 +12,18 @@ body {
   align-items: center;
   background-color: grey;
 }
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.buttons button:hover {
+  background-color: aqua;
+  transform: scale(1.1);
+}
 
 #container {
-  border: 5px solid black;
+  border: 5px  black;
   background-color: white;
   box-shadow: 5px ;
   margin: 50px;
@@ -31,16 +40,13 @@ body {
   align-items: center;
 }
 
-.grid-square:hover {
-  background-color: aqua;
-}
-
-#grid-button {
+#grid-button, #delete-button {
   margin-top: 5rem;
   width: 10rem;
   height: 5rem;
   border-radius: 5px;
   padding: 10px;;
   display: inline-block;
-  border: 5px solid;
+  border: 5px ;
 }
+
