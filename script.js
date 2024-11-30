@@ -62,7 +62,3 @@ opacityButton.addEventListener("click", () => {
 });
 
 
-
-
-
-
