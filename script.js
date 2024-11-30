@@ -1,7 +1,9 @@
 let divContainer = document.querySelector("#container"); // parent div container
 const gridButton = document.querySelector("#grid-button");
 let numSquares;
-const deleteButton = document.querySelector("#delete-button")
+const deleteButton = document.querySelector("#delete-button");
+const opacityButton = document.querySelector("#opacity-button");
+
 
 
 gridButton.addEventListener("click", () => {
@@ -14,14 +16,24 @@ gridButton.addEventListener("click", () => {
           for (let j = 0; j < numSquares; j++){
             const div = document.createElement('div');
             div.classList.add('grid-square');  // add class to use for event listener
+            div.classList.add('color-mode');
             div.style.width = `${100 / numSquares }%`; // divide by nums to make width within parent container - prevent overflow
             div.style.height = `${100 / numSquares }%`;
 
             div.addEventListener('mouseenter', () => {
-              let red = Math.floor(Math.random() * 256)
-              let green = Math.floor(Math.random() * 256)
-              let blue = Math.floor(Math.random() * 256)
-              div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+              if (div.classList.contains("opacity-mode")) {
+                let updatedOpacity = parseFloat(div.style.opacity); // with opacity mode all divs start with opacity 0 so no need to handle empty string
+                if (updatedOpacity < 1) {
+                  updatedOpacity += 0.1;
+                  div.style.opacity = String(updatedOpacity);
+                }
+              }
+              else if (div.classList.contains("color-mode")) {
+                let red = Math.floor(Math.random() * 256)
+                let green = Math.floor(Math.random() * 256)
+                let blue = Math.floor(Math.random() * 256)
+                div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+              }
           });
 
             divContainer.appendChild(div);
@@ -38,6 +50,18 @@ deleteButton.addEventListener("click", () => {
   const squares = document.querySelectorAll(".grid-square");
   squares.forEach(square => square.style.backgroundColor = "");
 });
+
+opacityButton.addEventListener("click", () => {
+  const squares = document.querySelectorAll(".grid-square");
+  squares.forEach(square =>  {
+    square.style.opacity = 0;
+    square.style.backgroundColor = "black";
+    square.classList.add("opacity-mode");
+    square.classList.remove("color-mode");
+});
+});
+
+
 
 
 
