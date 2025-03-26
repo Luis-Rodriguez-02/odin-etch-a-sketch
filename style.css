@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#titleDiv {
+  padding: 25px;
+  font-size: 4rem;
+}
+
+#gridContainer {
+  display: flex;
+  max-width: 500px;
+  min-width: 100px;
+  flex-wrap: wrap;
+  border: 5px solid red;
+  overflow: hidden;
+}
