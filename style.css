@@ -18,9 +18,12 @@ body {
 
 #gridContainer {
   display: flex;
-  max-width: 500px;
-  min-width: 100px;
+  width: 450px;
+  height: 350px;
   flex-wrap: wrap;
-  border: 5px solid red;
-  overflow: hidden;
+  border: 5px solid black;
+}
+
+#gridContainer div:hover {
+  background-color: blue;
 }
